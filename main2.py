@@ -1,6 +1,9 @@
+import os
+
 while True:
+    os.system('cls')
     unit = ["celcius", "fahrenheit", "kelvin", "reaumur"]
-    print(f"1. {unit[0]}") # celcius
+    print(f"\n1. {unit[0]}") # celcius
     print(f"2. {unit[1]}") # fahrenheit
     print(f"3. {unit[2]}") # kelvin 
     print(f"4. {unit[3]}") # reaumur
@@ -31,9 +34,8 @@ while True:
     if unit_input == unit_output:
        pass
     else:
-      print(f"{temp_input} {unit[unit_input-1]} = {conversion[(unit_input, unit_output)]:.2f} {unit[unit_output-1]}")
+      print(f"{temp_input} {unit[unit_input-1]} = {conversion[(unit_input, unit_output)]:.2f} {unit[unit_output-1]}\n")
     
-    print(" ")
     response = str(input("Apakah ingin keluar? (y/n): "))
     if response.lower() == "y":
        break 
