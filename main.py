@@ -1,10 +1,8 @@
-temp_input = float(input("Masukkan angka: "))
-unit_input = str(input("Masukkan satuan awal: "))
-unit_output = str(input("Masukkan satuan akhir: "))
+import os
 
 conversion = {
     "c": {
-        "f": lambda x: (x * 9 / 5) + 32,
+    "f": lambda x: (x * 9 / 5) + 32,
         "r": lambda x: x * 4/ 5,
         "k": lambda x: x + 273.15
     },
@@ -24,11 +22,36 @@ conversion = {
         "r": lambda x: (x - 273.15) * 4 / 5
     }
 }
+    
+def hitung(angka):
+    '''fungsi untuk menghitung nilai konversi'''
+    hasil = conversion[unit_input.lower()][unit_output.lower()](angka)
+    return hasil
 
-def formula(temp_input, unit_input, unit_output):
-    return conversion[unit_input.lower()][unit_output.lower()](temp_input)
+def display_hasil(hasil):
+    print(f'{temp_input} {unit_input} = {hasil:.2f} {unit_output}')
 
-print(f"Hasil konversi: {formula(temp_input, unit_input, unit_output):.2f} {unit_output}")
 
+while True:
+    '''main program'''
+    os.system('cls')
+    print(f'{'KONVERTER SUHU':^37}')
+    print(f'{'-'*37}')
+    temp_input = float(input("\nMasukkan angka: "))
+    unit_input = str(input("Masukkan satuan awal (c, f, r, k): "))
+    unit_output = str(input("Masukkan satuan akhir (c, f, r, k): "))
+    if unit_input == unit_output:
+        print(f'{temp_input:.2f} {unit_input} = {temp_input:.2f} {unit_output}')
+    else:
+        HASIL = hitung(temp_input)
+        display_hasil(HASIL)
+
+    '''break'''
+    is_done = input('Apakah sudah selesai (y/n)? ')
+    if is_done == 'y':
+        break
+    else:
+        None
+    
 
     
